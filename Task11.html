@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            /* Adjust the max-width to your desired value */
+            width: 90%;
+            /* Adjust the width to your desired value */
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgb(224, 224, 76), rgb(176, 81, 146));
+            border-radius: 5px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container .checkbox-group label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registration-form" action="#" method="post">
+            <table>
+                <tr>
+                    <td><label>First Name</label></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Last Name</label></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input type="email"></td>
+                </tr>
+                <tr>
+                    <td><label>Password:</label></td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td><label>Re-enter Password:</label></td>
+                    <td><input type="password"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><label>Gender:</label></td>
+                    <td><input type="radio" value="Male"><label>Male</label></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" value="Female"><label>Female</label></td>
+                </tr>
+                <tr>
+                    <td><label>Age:</label></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><label>Phone Number:</label></td>
+                    <td><input type="number"></td>
+                </tr>
+                <tr>
+                    <td><label>Address:</label></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td><label>State:</label></td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label>Country: </label></td>
+                    <td><select name="states">
+                            <option value="India">UttarPradesh</option>
+                            <option value="US">Bihar</option>
+                            <option value="UK">Uttarkhand</option>
+                            <option value="Germany">Haryana</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label>Language known: </label></td>
+                    <td>
+                        <input type="checkbox" value="English"><label>English</label>
+                        <input type="checkbox" value="Kannada"><label>Kannada</label>
+                        <input type="checkbox" value="Hindi"><label>Hindi</label>
+                        <input type="checkbox" value="Telugu"><label>Telugu</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" value="Telugu"><label>Hereby I declare all the given details
+                            are true</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td colspan="2">Log in to <a href="" style="text-decoration: underline;">Ethnus</a> website</td>
+                </tr>
+            </table>
+            <div style="text-align: center;">
+            <button style="background-color: red;border-radius: 20px;">Register</button></div>
+        </form>
+    </div>
+    <script>
+        // JavaScript form validation
+        document.getElementById('registration-form').addEventListener('submit', function (event) {
+            var password = document.getElementById('password').value;
+            var rePassword = document.getElementById('re-password').value;
+
+            if (password !== rePassword) {
+                event.preventDefault();
+                alert('Passwords do not match!');
+            }
+        });
+    </script>
+</body>
+
+</html>
