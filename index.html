@@ -53,27 +53,32 @@
 <body>
     <div class="form-container">
         <h2>Registration Form</h2>
-        <form id="registration-form" action="#" method="post">
+        <form id="registration-form" onsubmit="return Submitted()">
             <table>
                 <tr>
                     <td><label>First Name</label></td>
-                    <td><input type="text"></td>
+                    <td><input type="text" id="first"></td>
+                    <td id="firsterror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Last Name</label></td>
-                    <td><input type="text"></td>
+                    <td><input type="text" id="last"></td>
+                    <td id="lasterror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Email</label></td>
-                    <td><input type="email"></td>
+                    <td><input type="email" id="email"></td>
+                    <td id="emailerror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Password:</label></td>
-                    <td><input type="password"></td>
+                    <td><input type="password" id="password"></td>
+                    <td id="passerror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Re-enter Password:</label></td>
-                    <td><input type="password"></td>
+                    <td><input type="password" id="re-password"></td>
+                    <td id="repasserror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td rowspan="2"><label>Gender:</label></td>
@@ -84,19 +89,23 @@
                 </tr>
                 <tr>
                     <td><label>Age:</label></td>
-                    <td><input type="number"></td>
+                    <td><input type="number" id="age"></td>
+                    <td id="ageerror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Phone Number:</label></td>
-                    <td><input type="number"></td>
+                    <td><input type="number" id="phone"></td>
+                    <td id="numbererror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Address:</label></td>
-                    <td><textarea></textarea></td>
+                    <td><textarea required></textarea></td>
+                    <td id="textareaerror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>State:</label></td>
-                    <td><input type="text"></td>
+                    <td><input type="text" id="state"></td>
+                    <td id="stateerror" style="color: red;padding-left: 30px;"></td>
                 </tr>
                 <tr>
                     <td><label>Country: </label></td>
@@ -127,20 +136,55 @@
                 </tr>
             </table>
             <div style="text-align: center;">
-            <button style="background-color: red;border-radius: 20px;">Register</button></div>
+                <button style="background-color: red;border-radius: 20px;">Register</button>
+            </div>
         </form>
     </div>
     <script>
         // JavaScript form validation
-        document.getElementById('registration-form').addEventListener('submit', function (event) {
+        function Submitted() {
             var password = document.getElementById('password').value;
             var rePassword = document.getElementById('re-password').value;
-
-            if (password !== rePassword) {
-                event.preventDefault();
-                alert('Passwords do not match!');
+            var first = document.getElementById('first').value;
+            var last = document.getElementById('last').value;
+            var email = document.getElementById('email').value;
+            var age = document.getElementById('age').value;
+            var phone = document.getElementById('phone').value;
+            var state = document.getElementById('state').value;
+            if (first == "" || last == "" || email == "" || password == "" || rePassword == "" || age == "" || phone == "" || state == "" || password !== rePassword ) {
+                if (password !== rePassword) {
+                    document.getElementById("repasserror").innerText = "Mismatch"
+                }
+                if (first == "") {
+                    document.getElementById("firsterror").innerText = "Poor"
+                }
+                if (last == "") {
+                    document.getElementById("lasterror").innerText = "Poor"
+                }
+                if (email == "") {
+                    document.getElementById("emailerror").innerText = "Poor"
+                }
+                if (password == "") {
+                    document.getElementById("passerror").innerText = "Poor"
+                }
+                if (rePassword == "") {
+                    document.getElementById("repasserror").innerText = "Poor"
+                }
+                if (age == "") {
+                    document.getElementById("ageerror").innerText = "Poor"
+                }
+                if (phone == "") {
+                    document.getElementById("numbererror").innerText = "Poor"
+                }
+                if (state == "") {
+                    document.getElementById("stateerror").innerText = "Poor"
+                }
+                return false;
             }
-        });
+            return true;
+
+        };
+
     </script>
 </body>
 
